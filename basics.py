@@ -8,7 +8,8 @@ print "This is my first Python Program"
 #	Maths functions
 
 print "2 + 2 = ", 2 + 2 
-print "20 / 5 = ", 20/5
+print "20 / 5 = ", 20 / 5
+print "3 * 4 = ", 3 * 4
 
 #	Variables 
 
