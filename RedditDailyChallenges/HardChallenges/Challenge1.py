@@ -7,30 +7,35 @@ Created on 11 Aug 2014
 '''
 import random
 
+def new_random():
+    return random.randint(low, high)
+
 high = 100
 low = 1
-guess = 0
+guess = new_random()
 
 count = 0
-
 user_input = ""
 
-print "I'll try to guess your number, Enter (h) if its higher, (l) if its lower or (y) if its correct"
+print "Think of a number between 1 and 100, I'll try to guess it, Enter (h) if its higher, (l) if its lower or (y) if its correct"
+raw_input("Ready? Hit Enter to start...")
 
 while not user_input == "y":
 
-    guess = random.randint(low, high)
-    prompt = "Is it %d" % guess
-    user_input = raw_input(prompt)
-    
-    if not user_input =="y":
-        if user_input == "h":
-            low = guess
-            count +=1
-        elif user_input == "l":
-            high = guess
-            count +=1
-        else:
-            print "Invalid Input"
+        prompt = "Is it %d" % guess
+        user_input = raw_input(prompt)
+        
+        if not user_input =="y":       
+                if user_input == "h":
+                        low = guess + 1
+                        count +=1
+                        guess = new_random()
 
+                elif user_input == "l":
+                        high = guess - 1
+                        count +=1
+                        guess = new_random()
+                else:
+                        print "Invalid Input"
+        
 print "It was %d! I got it in %d guesses!" % (guess, count)
